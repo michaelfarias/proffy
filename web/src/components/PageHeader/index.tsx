@@ -8,6 +8,7 @@ import './styles.css';
 
 interface PageHeaderProps {
     title: string;
+    description?: string; // o sinal ? serve para dizer que essa propriedade é opcional
 }
 
 const PageHeader: React.FC<PageHeaderProps> = (props) => {
@@ -17,12 +18,14 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
                 <Link to="/">
                     <img src={backIcon} alt="Voltar" />
                 </Link>
-                
+
                 <img src={logoImg} alt="Proffy" />
             </div>
 
             <div className="header-content">
                 <strong>{props.title}</strong>
+
+                {props.description && <p>{props.description}</p>}
 
                 {props.children}
 
